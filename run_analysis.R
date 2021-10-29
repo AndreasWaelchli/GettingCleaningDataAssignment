@@ -57,6 +57,9 @@ tidy <- cbind(subject, y, X)[y_label, nomatch=0, on="activityId"] %>%
     mutate(activity = as.factor(activityStr)) %>%
     select(-c(activityStr, activityId))
 
+write.table(tidy, file="tidy.txt", row.name=FALSE)
+tidy
+
 ## 4. Create new data set with the average of each variable for each activity
 #       and subject
 tidySmall <- tidy %>%
